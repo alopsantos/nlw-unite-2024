@@ -1,0 +1,26 @@
+@baseurl=http://localhost:3333
+@Content=Content-Type: application/json
+@eventId=62e015b1-f618-44fe-b105-c8b3eff1b963
+### Criar evento
+POST {{baseurl}}/events
+{{Content}}
+
+{
+  "title": "Live Supernatural",
+  "details": "Encontro anual de fãs",
+  "maximumAttendees": 1
+}
+
+
+### Registar em um event
+POST {{baseurl}}/events/{{eventId}}/attendees
+{{Content}}
+
+{
+  "name": "Thais Fernanda Lopes",
+  "email": "thaisfernanda@hotmail.com"
+}
+
+
+### Buscar um evento pelo id
+GET {{baseurl}}/events/{{eventId}}
