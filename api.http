@@ -1,14 +1,14 @@
 @baseurl=http://localhost:3333
 @Content=Content-Type: application/json
-@eventId=62e015b1-f618-44fe-b105-c8b3eff1b963
+@eventId=538a4e98-97f4-4edb-9955-16ab079c544d
 ### Criar evento
 POST {{baseurl}}/events
 {{Content}}
 
 {
-  "title": "Live Supernatural",
-  "details": "Encontro anual de fãs",
-  "maximumAttendees": 1
+  "title": "Teste evento 2",
+  "details": null,
+  "maximumAttendees": null
 }
 
 
@@ -24,3 +24,6 @@ POST {{baseurl}}/events/{{eventId}}/attendees
 
 ### Buscar um evento pelo id
 GET {{baseurl}}/events/{{eventId}}
+
+### Buscar attendee pelo id
+GET {{baseurl}}/attendees/1/badge

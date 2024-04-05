@@ -1,16 +1,17 @@
 import z from "zod";
 import { FastifyReply, FastifyRequest } from "fastify";
-import { prisma } from "../../lib/prisma";
+import { prisma } from "lib/prisma";
+
 export async function registerForEvent(
   request: FastifyRequest,
   replay: FastifyReply
 ) {
   const createRegisterForEventSchema = z.object({
     name: z.string().min(4),
-    email: z.string().email(),
+    email: z.string().email()
   });
   const createRegisterForEventParamsSchema = z.object({
-    eventId: z.string().uuid(),
+    eventId: z.string().uuid()
   });
 
   const { eventId } = createRegisterForEventParamsSchema.parse(request.params);
@@ -20,9 +21,9 @@ export async function registerForEvent(
     where: {
       eventId_email: {
         email,
-        eventId,
-      },
-    },
+        eventId
+      }
+    }
   });
 
   if (attendeeFromEmail) {
@@ -33,9 +34,9 @@ export async function registerForEvent(
 
     prisma.attendee.count({
       where: {
-        eventId,
-      },
-    }),
+        eventId
+      }
+    })
   ]);
 
   if (
@@ -50,8 +51,8 @@ export async function registerForEvent(
     data: {
       name,
       email,
-      eventId,
-    },
+      eventId
+    }
   });
 
   return replay.status(201).send({ attendeeId: attendee.id });
