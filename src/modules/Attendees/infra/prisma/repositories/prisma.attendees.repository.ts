@@ -38,7 +38,7 @@ export class PrismaAttendeeRepository implements IAttendeesRepository {
   }> {
     throw new Error("Method not implemented.");
   }
-  delete(attendeeId: string): Promise<void> {
+  delete(attendeeId: number): Promise<void> {
     throw new Error("Method not implemented.");
   }
 }

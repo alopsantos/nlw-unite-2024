@@ -1,13 +1,13 @@
 @baseurl=http://localhost:3333
 @Content=Content-Type: application/json
-@eventId=538a4e98-97f4-4edb-9955-16ab079c544d
+@eventId=251b5db1-68a8-4c19-b25f-fd5d367a96ad
 ### Criar evento
 POST {{baseurl}}/events
 {{Content}}
 
 {
-  "title": "Teste evento 2",
-  "details": null,
+  "title": "Comunidade Aceleragro",
+  "details": "A maior comunidade com foco agro",
   "maximumAttendees": null
 }
 
@@ -17,8 +17,8 @@ POST {{baseurl}}/events/{{eventId}}/attendees
 {{Content}}
 
 {
-  "name": "Thais Fernanda Lopes",
-  "email": "thaisfernanda@hotmail.com"
+  "name": "Anderson Lopes",
+  "email": "anderson_lops@hotmail.com"
 }
 
 
@@ -26,4 +26,7 @@ POST {{baseurl}}/events/{{eventId}}/attendees
 GET {{baseurl}}/events/{{eventId}}
 
 ### Buscar attendee pelo id
-GET {{baseurl}}/attendees/1/badge
+GET {{baseurl}}/attendees/5/badge
+
+###
+GET {{baseurl}}/attendees/5/checkin
